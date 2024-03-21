@@ -8,6 +8,9 @@ use App\Models\Student;
 class StudentList extends Component
 {
     public $students;
+    public $store_id;
+    public $name, $email, $rollno;
+    public $check = true;
 
     public function mount()
     {
@@ -24,5 +27,15 @@ class StudentList extends Component
         Student::find($id)->delete();
         
         $this->mount();
+    }
+        // Update
+    public function updateData($id)
+    {
+        $this->store_id = $id;
+        $student = Student::find($id);
+        $this->name = $student->name;
+        $this->email = $student->email;
+        $this->rollno = $student->rollno;
+        $this->check = false;
     }
 }
