@@ -3,9 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Student;
 
-class Registration extends Component
+class Rhishi extends Component
 {
     public $rollno;
     public $name;
@@ -15,7 +14,6 @@ class Registration extends Component
     {
         return view('livewire.registration');
     }
-
     public function submit()
     {
         $this->validate([
@@ -23,15 +21,5 @@ class Registration extends Component
             'name' => 'required',
             'email' => 'required|email',
         ]);
-        $student = new Student;
-        $student->rollno = $this->rollno;
-        $student->name = $this->name;
-        $student->email = $this->email;
-        $student->save();
-        $this->resetFilter();
-    }
-    public function resetFilter()
-    {       // reset form afer submit data
-        $this->reset(['rollno', 'name', 'email']);
     }
 }
