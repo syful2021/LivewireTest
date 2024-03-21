@@ -18,4 +18,11 @@ class StudentList extends Component
     {
         return view('livewire.student-list');
     }
+        // Delete
+    public function deleteStu($id)
+    {
+        Student::find($id)->delete();
+        
+        $this->mount();
+    }
 }
