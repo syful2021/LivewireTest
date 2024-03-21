@@ -31,7 +31,7 @@ class Registration extends Component
         $this->resetFilter();
     }
     public function resetFilter()
-    {       // reset form afer submit data
+    {       // reset form after submit data
         $this->reset(['rollno', 'name', 'email']);
     }
 }

@@ -3,7 +3,7 @@
         <div class="card col-md-5">
             <div class="card-header">
                 <h1>Add student</h1>
-            </div> 
+            </div>
             <div class="card-body">
                 <form wire:submit="submit" method="POST">
                     <div class="form-group">
