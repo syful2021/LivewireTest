@@ -12,9 +12,22 @@ class Registration extends Component
     {
         return view('livewire.registration');
     }
+            // updated for show live Validation
+    public function updated($field)
+    {
+        $this->validateOnly([
+            'name' => 'required',
+            'rollno' => 'required|min:3|max:10',
+            'email' => 'required | email'
+        ])
+    }
 
     public function submit()
     {
-        // dd($this->roll_id,$this->name,$this->email);
+        $this->validate(
+            'name' => 'required',
+            'rollno' => 'required|min:3|max:10',
+            'email' => 'required | email'
+        )
     }
 }
