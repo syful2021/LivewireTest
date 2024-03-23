@@ -38,4 +38,19 @@ class StudentList extends Component
         $this->rollno = $student->rollno;
         $this->check = false;
     }
+    public function updateStudent()
+    {
+        $this->validate([
+            'rollno' => 'required | min:3 |max:10',
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $student = Student::find($this->store_id);
+        $student->name = $this->name;
+        $student->email = $this->email;
+        $student->rollno = $this->rollno;
+        $student->save();
+        $this->check = true;
+    }
 }
